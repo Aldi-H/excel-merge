@@ -17,7 +17,12 @@ else:
     
     for file in excel_files:
         print(f"Reading: {os.path.basename(file)}")
-        df = pd.read_excel(file, dtype=str)
+        df = pd.read_excel(
+            file,
+            dtype={
+                "NIP": str,
+                "NO. REKENING": str,
+            })
         dfs.append(df)
     
     merged_df = pd.concat(dfs, ignore_index=True)
