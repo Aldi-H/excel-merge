@@ -40,6 +40,7 @@ def merge_excel_files(paths):
                 }
             )
 
+            df.insert(1, "SOURCE FILE", os.path.basename(p))
             dfs.append(df)
 
         except Exception as e:
@@ -87,7 +88,7 @@ def main():
 
         merged_df = merge_excel_files(excel_paths)
 
-        out_file = os.path.join(output_path, "REKON_PAJAK_OKTOBER_2025.xlsx")
+        out_file = os.path.join(output_path, "REKON_PAJAK_OKTOBER_2025(2).xlsx")
         merged_df.to_excel(out_file, index=False)
 
         print(json.dumps({"success": True, "output_file": out_file}, indent=2))
