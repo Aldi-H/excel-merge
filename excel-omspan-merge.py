@@ -1,9 +1,10 @@
 import pandas as pd
 import glob
 import os
+from datetime import datetime
 
-# folder_path = "/mnt/d/Work/Job/CPNS/Perbendaharaan/OMSPAN/2025/DAK_TPG_NOVEMBER"
-folder_path = "/mnt/d/Work/Job/CPNS/Perbendaharaan/OMSPAN/2025/DESEMBER/DAK_TPG_DESEMBER/KESELURUHAN"
+folder_path = "/mnt/d/Work/Job/CPNS/Perbendaharaan/OMSPAN/2026/JANUARI/TAMSIL"
+# folder_path = "/mnt/d/Work/Job/CPNS/Perbendaharaan/OMSPAN/2026/JANUARI/TPG"
 
 excel_files = glob.glob(os.path.join(folder_path, "*.xlsx")) + \
             glob.glob(os.path.join(folder_path, "*.xls"))
@@ -27,12 +28,14 @@ else:
         df.insert(0, "SOURCE FILE", os.path.basename(file))
 
         dfs.append(df)
-    
+
     merged_df = pd.concat(dfs, ignore_index=True)
-    
+
     merged_df.insert(1, "ANGKATAN", merged_df["NIP"].str[8:12])
-    
-    output_path = os.path.join(folder_path, "DAK_TPG_DESEMBER.xlsx")
+
+    datetime = datetime.now().strftime("%Y%m%d")
+
+    output_path = os.path.join(folder_path, f"DAK_TAMSIL_JANUARI_2026_{datetime}.xlsx")
     merged_df.to_excel(output_path, index=False)
     
     print(f"\nMerged {len(dfs)} files successfully!")
