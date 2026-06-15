@@ -3,8 +3,8 @@ import os
 from glob import glob
 from tkinter import Tk, filedialog
 
-folder_path = "/mnt/d/Work/Job/CPNS/Perbendaharaan/Rekon Pajak 2025/SEPTEMBER/Rekon/KPPN"
-output_path = "/mnt/d/Work/Job/CPNS/Perbendaharaan/Rekon Pajak 2025/SEPTEMBER/Rekon/KPPN"
+folder_path = "/mnt/d/Work/Job/CPNS/Perbendaharaan/Rekon Pajak/Rekon Pajak 2025/November/Rekon/KPPN"
+output_path = "/mnt/d/Work/Job/CPNS/Perbendaharaan/Rekon Pajak/Rekon Pajak 2025/November/Rekon/KPPN"
 
 def select_files():
     """Open file dialog to manually select Excel files"""
