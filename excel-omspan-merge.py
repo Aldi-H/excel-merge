@@ -4,7 +4,7 @@ import os
 from datetime import datetime
 
 # folder_path = "/mnt/d/Work/Job/CPNS/Perbendaharaan/OMSPAN/2026/JUNI/TAMSIL/MEI_GEL 1"
-folder_path = "/mnt/d/Work/Job/CPNS/Perbendaharaan/OMSPAN/2026/JUNI/TPG/JAN_GEL 7"
+folder_path = "/mnt/d/Work/Job/CPNS/Perbendaharaan/OMSPAN/2026/JUNI/TPG/APRL_GEL 3"
 
 excel_files = glob.glob(os.path.join(folder_path, "*.xlsx")) + \
             glob.glob(os.path.join(folder_path, "*.xls"))
@@ -23,6 +23,7 @@ else:
             dtype={
                 "NIP": str,
                 "NO. REKENING": str,
+                "BANK": str,
             })
         
         df.insert(0, "SOURCE FILE", os.path.basename(file))
@@ -36,7 +37,7 @@ else:
     datetime = datetime.now().strftime("%Y%m%d")
 
     # output_path = os.path.join(folder_path, f"DAK_TAMSIL_MEI_GEL_1_{datetime}.xlsx")
-    output_path = os.path.join(folder_path, f"DAK_TPG_JAN_GEL_7_{datetime}.xlsx")
+    output_path = os.path.join(folder_path, f"DAK_TPG_APRIL_GEL_3_{datetime}.xlsx")
     merged_df.to_excel(output_path, index=False)
     
     print(f"\nMerged {len(dfs)} files successfully!")
